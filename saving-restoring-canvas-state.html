@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="c" width="600" height="800"></canvas>
+    <script>
+        let c = document.querySelector("#c");
+        let ctx = c.getContext('2d');
+        
+        //Option 1
+        // ctx.fillStyle = "blue";
+        // ctx.fillRect(0, 0, 50, 50);
+
+        // ctx.fillStyle = "green"
+        // ctx.fillRect(100, 100, 10, 10);
+
+        // ctx.fillStyle = "blue";
+        // ctx.fillRect(200, 10, 20, 20);
+
+        //Option 2
+        ctx.fillStyle = "blue";
+        ctx.fillRect(0, 0, 50, 50);
+
+        // Save state with blue fill
+        ctx.save();
+        ctx.fillStyle = "green";
+        ctx.fillRect(100, 100, 10, 10);
+        // Restore to blue fill
+        ctx.restore();
+
+        ctx.fillRect(200, 10, 20, 20);
+
+    </script>
+</body>
+</html>
