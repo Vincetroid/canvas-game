@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="c" width="500" height="500"></canvas>
+    <script>
+        let c = document.querySelector('#c');
+        let ctx = c.getContext('2d');
+        let degrees = 45;
+        let radians = degrees * (Math.PI / 180); 
+        
+        ctx.fillStyle = 'blue';
+        // ctx.rotate(radians);
+        ctx.translate(200, 200);
+        ctx.fillRect(100, 100, 100, 100)
+        
+    </script>
+</body>
+</html>
