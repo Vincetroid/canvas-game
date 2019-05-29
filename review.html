@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Review</title>
+    <style type="text/css">
+        body{
+            background: darkcyan
+        }
+        #c1{ 
+            background-color: azure
+        }
+        #c2{
+            background: aquamarine
+        }
+        #c3{
+            background: ghostwhite
+        }
+    </style>
+</head>
+<body>
+    <canvas id="c1" width="1000" height="1000"></canvas> <!-- 1.sol -->
+    <canvas id="c2" width="1000" height="1000"></canvas>
+    <canvas id="c3" width="1000" height="1000"></canvas>
+    <script>
+    let c1 = document.querySelector('#c1');
+    let c2 = document.querySelector('#c2');
+    let c3 = document.querySelector('#c3');
+    let ctx1 = c1.getContext('2d'); //2. calcetines
+    let ctx2 = c2.getContext('2d'); //2. calcetines
+    let ctx3 = c3.getContext('2d'); //2. calcetines
+
+    let img = new Image(); //3. semaforo, imagen de semaforo
+    img.src = 'kid.jpg';
+
+    img.onload = function() {
+        ctx1.drawImage(img, 200, 200);
+    }
+
+    let car = ctx1.strokeRect(10, 10, 100, 100); //4. carro dibujado con lineas y trazos
+    ctx1.fillStyle = 'blue'; //6. sixPack
+    let star = ctx1.fillRect(200, 10, 100, 100); //5. estrella dibujada con relleno sin color definido 
+    ctx1.clearRect(200, 10, 10, 10); //7. colores de arcoiris
+    // ctx.clearRect(0, 0, c.width, c.height)
+    // ctx.clearRect(0, 0, c.width, c.height)
+    // c1.width = c1.width; //8. pulpo, borrar todo el pulpo/canvas (tambien son validas las 2 anteriores)
+
+
+
+    ctx2.beginPath(); //9. vidas de un gato, tripas de gatos
+    ctx2.moveTo(50, 50)//10.dedos de las manos, mover la mano a un lado
+    ctx2.lineTo(200, 50); //11. skies moviendose en linea recta solo por arribita
+    ctx2.lineTo(300, 150);
+    ctx2.lineTo(200, 150);
+    ctx2.lineTo(50, 50);
+    // ctx2.fill();//12. docena de rosas, rellenar de rosas dentro de la figura 
+    ctx2.stroke();//13. bruja
+    ctx2.scale(1,2);//14.oro de 14kilates, hacerlo gigante con scale
+    ctx2.rotate(Math.PI)//15.rotar el dinero, circularlo
+    ctx2.translate(200, 200);//16.cambiar de lugar el pastel
+
+    ctx2.save();//17.revista, guardarla en el librero
+    ctx2.restore();//17.5revista, sacarla en el librero
+    ctx2.strokeStyle = 'red'//18.camion de 18 ruedas
+
+
+
+    ctx3.strokeText('Un texto', 300, 300)//19.texto de neon en el bar (hoyo 19)
+    ctx3.fillText('otro texto', 50, 50)//20.20th century fox, texto solido similar
+    </script>
+</body>
+</html>

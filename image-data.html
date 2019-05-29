@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="c" width="1000" height="1000"></canvas>
+    <script>
+    let c = document.querySelector('#c');
+    let ctx = c.getContext('2d');
+
+    let imgData = ctx.getImageData(0, 0, 400, 400);
+
+    // console.log(imgData)    
+
+    function paintGreen(imageData){
+        let numPixels = imageData.data.length / 4;
+        console.log(imageData.data.length)
+        console.log(numPixels)
+        for (let i = 0; i < numPixels; i++) {
+            if (i % 10 === 0) {
+                imageData.data[i * 4  + 1] = 255;
+                imageData.data[i * 4  + 3] = 255;
+            }
+            ctx.putImageData(imageData, 0, 0);            
+        }
+    }
+    paintGreen(imgData);
+    </script>
+</body>
+</html>

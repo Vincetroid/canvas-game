@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="c" width="1500" height="1500"></canvas>
+    <script>
+    let c = document.querySelector('#c');
+    let ctx = c.getContext('2d');
+    let img = new Image();
+    img.src = 'kid.jpg';
+
+    img.onload = function(){
+        ctx.drawImage(img, 0, 0);
+        // let imgData = ctx.getImageData(10, 10, 1200, 675);
+        // let imgData = ctx.getImageData(0, 0, 64, 64);
+        let imgData = ctx.getImageData(0, 0, 678, 510);
+        console.log(imgData);
+        grayScale(imgData);
+    }
+
+    function grayScale(imageData){
+        let pixels = imageData.data.length;
+        let arrAux = [];
+        let counter = 0;
+        // let j = 0, k = 3;
+        let num = 0;
+        let lowerLimit = 0, upperLimit = 3;
+        let avg = 0;
+        for (let i = 0; i < pixels; i++) {
+            // imageData.data[i];
+            //conseguir los primeros 3
+                //for de 0 a 2
+                //asignarlo a una let auxiliar llamada arrAux[]
+            //promediarlos
+                //promediar arrAux[] y asignarlo a una let llamada avg
+            //asignarlos a esas 3 posiciones
+                //asignar el valor de avg dentro del for de 0 a 2
+            // console.log(imageData.data[i]);
+
+            // for (j; j < k; j++) {
+            //     console.log(imageData.data[j]);
+            //     arrAux.push(imageData.data[j])
+            // }
+
+            if (i >= lowerLimit && i < upperLimit) {
+                // debugger;
+                console.log(imageData.data[i]);
+                // arrAux.push(imageData.data[i]);
+                num += imageData.data[i];
+            }
+
+            if (i === upperLimit) {
+
+                // let count = 0;
+                // arrAux.forEach(element => {
+                //     count += element;
+                // });
+
+                avg = Math.round(num / 3);
+
+                console.log('Avg = ' + avg);
+
+                // while (i < limit) {
+                //     imageData.data[i] = avg;
+                // }
+                for (let j = lowerLimit; j < upperLimit; j++) {
+                    debugger;
+                    imageData.data[j] = avg;
+                }
+
+                num = 0;
+                lowerLimit += 4;
+                upperLimit += 4;
+            }
+
+            ctx.putImageData(imageData, 678, 510);
+
+
+            // arrAux.forEach(element => {
+            //     counter += element;
+            // });
+
+            
+            // avg = Math.round(counter / 3);
+            
+            // counter = 0;
+            
+            // console.log('Avg = ' + avg);
+
+            // // for (let i = 0; i < 3; i++) {
+            // //     imageData.data[i] = avg;
+            // // }
+            
+            // for (let j = 0; j < 3; j++) {
+            //     imageData.data[j] = avg;
+            // }
+
+            // j += 2;
+            // // counterJump += 3;
+
+        }
+        // ctx.putImageData(imageData, 0, 0);
+        // console.log(arrAux)
+        // console.log(imageData);
+    }
+    
+    </script>
+</body>
+</html>
